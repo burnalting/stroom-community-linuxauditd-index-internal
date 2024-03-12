@@ -1,0 +1,220 @@
+{
+  "timeRange" : {
+    "name" : "All time",
+    "condition" : "BETWEEN"
+  },
+  "components" : [ {
+    "type" : "table",
+    "id" : "table-IIO1T",
+    "name" : "Table",
+    "settings" : {
+      "type" : "table",
+      "queryId" : "query-JT8D7",
+      "fields" : [ {
+        "id" : "table-IIO1T|VUL3L",
+        "name" : "EventTime",
+        "expression" : "${EventTime}",
+        "format" : {
+          "type" : "DATE_TIME"
+        },
+        "width" : 200,
+        "visible" : true,
+        "special" : false
+      }, {
+        "id" : "table-IIO1T|OG54N",
+        "name" : "Event.Action",
+        "expression" : "${Event.Action}",
+        "format" : {
+          "type" : "GENERAL"
+        },
+        "width" : 200,
+        "visible" : true,
+        "special" : false
+      }, {
+        "id" : "table-IIO1T|SUXVD",
+        "name" : "File.Path",
+        "expression" : "${File.Path}",
+        "format" : {
+          "type" : "GENERAL"
+        },
+        "width" : 445,
+        "visible" : true,
+        "special" : false
+      }, {
+        "id" : "__stream_id__",
+        "name" : "__stream_id__",
+        "expression" : "${StreamId}",
+        "width" : 200,
+        "visible" : false,
+        "special" : true
+      }, {
+        "id" : "__event_id__",
+        "name" : "__event_id__",
+        "expression" : "${EventId}",
+        "width" : 200,
+        "visible" : false,
+        "special" : true
+      } ],
+      "extractionPipeline" : {
+        "type" : "Pipeline",
+        "uuid" : "4c3e65f1-8d9a-42a3-8b0a-f1656af7a52e",
+        "name" : "LINUX-AUDITD-Extraction-Internal-V1.0"
+      },
+      "pageSize" : 100,
+      "showDetail" : false,
+      "conditionalFormattingRules" : [ ],
+      "modelVersion" : "6.1.26",
+      "dataSourceRef" : {
+        "type" : "Index",
+        "uuid" : "2801988f-77dd-4d05-82fb-d3613332c7da",
+        "name" : "LINUX-AUDITD-Index-Internal-V1.0"
+      }
+    }
+  }, {
+    "type" : "query",
+    "id" : "query-JT8D7",
+    "name" : "Query",
+    "settings" : {
+      "type" : "query",
+      "dataSource" : {
+        "type" : "Index",
+        "uuid" : "2801988f-77dd-4d05-82fb-d3613332c7da",
+        "name" : "LINUX-AUDITD-Index-Internal-V1.0"
+      },
+      "expression" : {
+        "type" : "operator",
+        "children" : [ {
+          "type" : "term",
+          "field" : "Process.Command",
+          "condition" : "EQUALS",
+          "value" : "*chmod*",
+          "enabled" : false
+        }, {
+          "type" : "term",
+          "field" : "Event.Action",
+          "condition" : "EQUALS",
+          "value" : "Update",
+          "enabled" : false
+        }, {
+          "type" : "term",
+          "field" : "File.Path",
+          "condition" : "EQUALS",
+          "value" : "*"
+        } ]
+      },
+      "automate" : {
+        "open" : false,
+        "refresh" : false,
+        "refreshInterval" : "10s"
+      },
+      "selectionHandlers" : [ ],
+      "lastQueryKey" : {
+        "uuid" : "62cc96bc-778c-42e4-943f-9d8adde0d5bf"
+      },
+      "lastQueryNode" : "node1a"
+    }
+  }, {
+    "type" : "key-value-input",
+    "id" : "Params",
+    "name" : "Params",
+    "settings" : {
+      "type" : "key-value-input",
+      "text" : ""
+    }
+  }, {
+    "type" : "text",
+    "id" : "text-3E225",
+    "name" : "Text",
+    "settings" : {
+      "type" : "text",
+      "streamIdField" : {
+        "id" : "__stream_id__",
+        "name" : "__stream_id__",
+        "expression" : "${StreamId}",
+        "width" : 200,
+        "visible" : false,
+        "special" : true
+      },
+      "recordNoField" : {
+        "id" : "__event_id__",
+        "name" : "__event_id__",
+        "expression" : "${EventId}",
+        "width" : 200,
+        "visible" : false,
+        "special" : true
+      },
+      "showAsHtml" : false,
+      "showStepping" : false,
+      "modelVersion" : "6.1.26"
+    }
+  } ],
+  "layout" : {
+    "type" : "splitLayout",
+    "preferredSize" : {
+      "width" : 200,
+      "height" : 76
+    },
+    "dimension" : 1,
+    "children" : [ {
+      "type" : "tabLayout",
+      "preferredSize" : {
+        "width" : 200,
+        "height" : 76
+      },
+      "tabs" : [ {
+        "id" : "Params",
+        "visible" : true
+      } ],
+      "selected" : 0
+    }, {
+      "type" : "splitLayout",
+      "preferredSize" : {
+        "width" : 200,
+        "height" : 200
+      },
+      "dimension" : 1,
+      "children" : [ {
+        "type" : "tabLayout",
+        "preferredSize" : {
+          "width" : 200,
+          "height" : 199
+        },
+        "tabs" : [ {
+          "id" : "query-JT8D7"
+        } ],
+        "selected" : 0
+      }, {
+        "type" : "tabLayout",
+        "preferredSize" : {
+          "width" : 200,
+          "height" : 446
+        },
+        "tabs" : [ {
+          "id" : "table-IIO1T"
+        } ],
+        "selected" : 0
+      }, {
+        "type" : "tabLayout",
+        "preferredSize" : {
+          "width" : 0,
+          "height" : 446
+        },
+        "tabs" : [ {
+          "id" : "text-3E225",
+          "visible" : true
+        } ],
+        "selected" : 0
+      } ]
+    } ]
+  },
+  "layoutConstraints" : {
+    "fitWidth" : true,
+    "fitHeight" : true
+  },
+  "preferredSize" : {
+    "width" : 0,
+    "height" : 0
+  },
+  "designMode" : false,
+  "modelVersion" : "7.2.0"
+}

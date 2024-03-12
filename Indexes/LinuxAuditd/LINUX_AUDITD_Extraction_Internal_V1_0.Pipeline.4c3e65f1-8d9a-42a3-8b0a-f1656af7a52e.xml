@@ -1,0 +1,18 @@
+<?xml version="1.1" encoding="UTF-8"?>
+<pipeline>
+   <properties>
+      <add>
+         <property>
+            <element>xsltFilter</element>
+            <name>xslt</name>
+            <value>
+               <entity>
+                  <type>XSLT</type>
+                  <uuid>d49de447-feb4-46ce-954a-c9641d3512e4</uuid>
+                  <name>LINUX-AUDITD-Index-Internal-V1.0</name>
+               </entity>
+            </value>
+         </property>
+      </add>
+   </properties>
+</pipeline>

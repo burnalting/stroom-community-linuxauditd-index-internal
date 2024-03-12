@@ -1,0 +1,11 @@
+{
+  "type" : "Pipeline",
+  "uuid" : "fbfc1c9b-f7ad-45a7-a29f-17fb26a21462",
+  "name" : "LINUX-AUDITD-Index-Internal-V1.0",
+  "version" : "effb2e83-ed6d-4407-841f-f9d37c2e629d",
+  "parentPipeline" : {
+    "type" : "Pipeline",
+    "uuid" : "fcef1b20-083e-436c-ab95-47a6ce453435",
+    "name" : "Indexing"
+  }
+}

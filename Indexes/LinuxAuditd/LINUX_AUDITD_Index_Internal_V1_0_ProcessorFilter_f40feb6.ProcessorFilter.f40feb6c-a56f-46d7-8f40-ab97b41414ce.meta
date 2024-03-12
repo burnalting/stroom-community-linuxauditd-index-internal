@@ -1,0 +1,37 @@
+{
+  "uuid" : "f40feb6c-a56f-46d7-8f40-ab97b41414ce",
+  "queryData" : {
+    "dataSource" : {
+      "type" : "StreamStore",
+      "uuid" : "0",
+      "name" : "StreamStore"
+    },
+    "expression" : {
+      "type" : "operator",
+      "children" : [ {
+        "type" : "term",
+        "field" : "Feed",
+        "condition" : "IN_DICTIONARY",
+        "value" : "LinuxAuditdFeedNames",
+        "docRef" : {
+          "type" : "Dictionary",
+          "uuid" : "a4da1542-644e-4f6b-ab05-e89adedd2fcd",
+          "name" : "LinuxAuditdFeedNames"
+        }
+      }, {
+        "type" : "term",
+        "field" : "Type",
+        "condition" : "EQUALS",
+        "value" : "Events"
+      } ]
+    }
+  },
+  "priority" : 10,
+  "reprocess" : false,
+  "enabled" : true,
+  "deleted" : false,
+  "processorUuid" : "2f7e2c7d-9d2f-43b3-840a-d0e1a01e435d",
+  "pipelineUuid" : "fbfc1c9b-f7ad-45a7-a29f-17fb26a21462",
+  "pipelineName" : "LINUX-AUDITD-Index-Internal-V1.0",
+  "minMetaCreateTimeMs" : 1704067200000
+}

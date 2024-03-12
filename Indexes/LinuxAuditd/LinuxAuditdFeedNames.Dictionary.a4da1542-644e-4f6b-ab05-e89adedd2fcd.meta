@@ -1,0 +1,7 @@
+{
+  "type" : "Dictionary",
+  "uuid" : "a4da1542-644e-4f6b-ab05-e89adedd2fcd",
+  "name" : "LinuxAuditdFeedNames",
+  "version" : "1138128f-952c-4a5d-8681-8971e7780c4f",
+  "description" : "List of Linux Auditd feednames that can be used in pipeline processors."
+}

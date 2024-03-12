@@ -1,0 +1,11 @@
+{
+  "type" : "Pipeline",
+  "uuid" : "4c3e65f1-8d9a-42a3-8b0a-f1656af7a52e",
+  "name" : "LINUX-AUDITD-Extraction-Internal-V1.0",
+  "version" : "f201c8e4-4b65-472d-b403-a27f4c77c9a9",
+  "parentPipeline" : {
+    "type" : "Pipeline",
+    "uuid" : "3d9d60e9-61c2-4c88-a57b-7bc584dd970e",
+    "name" : "Search Extraction"
+  }
+}
